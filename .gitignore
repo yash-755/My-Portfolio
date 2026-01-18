@@ -18,6 +18,7 @@ build
 .vercel
 .netlify
 
+
 # Environment variables
 .env
 .env.local
