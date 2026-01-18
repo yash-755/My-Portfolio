@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: 'dist',
       sourcemap: false,
-      minify: 'terser',
+      minify: 'esbuild',  // Using Vite's built-in esbuild minifier (faster and simpler than terser)
       rollupOptions: {
         output: {
           manualChunks: {
