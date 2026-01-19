@@ -34,7 +34,7 @@ export const certificates: Certificate[] = [
         issuer: "Deloitte (Forage)",
         date: "2025",
         category: "valuable",
-        description: "Industry-style job simulation focused on data analysis, forensic technology exposure, business problem-solving, and professional reporting.",
+        description: "Industry-style job simulation focused on data analysis and professional reporting.",
         imageUrl: "/certificates/deloitte-data-analytics-job-simulation.png"
     },
     {

@@ -7,7 +7,7 @@ import { certificates, type Certificate } from "@/content/certificates";
 // Auto-playing carousel for valuable certificates
 const CertificateCarousel = ({ certificates, currentIndex, onCertificateClick, onPrev, onNext }: { certificates: Certificate[]; currentIndex: number; onCertificateClick: (cert: Certificate) => void; onPrev: () => void; onNext: () => void }) => {
   return (
-    <div className="relative mb-8">
+    <div className="relative mb-8" style={{ contain: 'layout paint', overflow: 'hidden' }}>
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
@@ -15,7 +15,7 @@ const CertificateCarousel = ({ certificates, currentIndex, onCertificateClick, o
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.5 }}
-          className="glass-card p-4 sm:p-6 cursor-pointer"
+          className="glass-card p-4 sm:p-6 cursor-pointer min-h-[300px] md:min-h-[420px]"
           onClick={() => onCertificateClick(certificates[currentIndex])}
         >
           <img
@@ -29,7 +29,7 @@ const CertificateCarousel = ({ certificates, currentIndex, onCertificateClick, o
           <p className="text-sm sm:text-base text-muted-foreground mb-1 sm:mb-2">
             {certificates[currentIndex].issuer} • {certificates[currentIndex].date}
           </p>
-          <p className="text-xs sm:text-sm text-muted-foreground">
+          <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2">
             {certificates[currentIndex].description}
           </p>
         </motion.div>
@@ -123,7 +123,7 @@ const CertificateModal = ({ certificate, onClose }: { certificate: Certificate; 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/90 backdrop-blur-sm"
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/90 md:backdrop-blur-sm"
         onClick={onClose}
       >
         <motion.div
@@ -172,16 +172,32 @@ const Certificates = () => {
     };
   }, [enlargedCert]);
 
-  // Auto-play keeps the section engaging without user interaction
+  // Auto-play carousel - DESKTOP ONLY
+  // Disabled on mobile to prevent GPU repaints causing flickering
   useEffect(() => {
     if (enlargedCert) return;
 
+    // Detect mobile/touch devices using pointer media query
+    // pointer: coarse = touch devices (mobile, tablets)
+    // pointer: fine = mouse devices (desktop, laptops)
+    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+
+    // CRITICAL: Disable autoplay on mobile/touch devices to prevent:
+    // - GPU repaints on every slide change
+    // - Navbar flickering
+    // - Chatbot FAB flickering
+    // - Global layout recalculation
+    if (isTouchDevice) {
+      return; // No autoplay on mobile - manual swipe only
+    }
+
+    // Desktop only: Auto-advance carousel every 3 seconds
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % valuableCerts.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [enlargedCert, valuableCerts.length]);
+  }, [currentIndex, enlargedCert, valuableCerts.length]);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % valuableCerts.length);

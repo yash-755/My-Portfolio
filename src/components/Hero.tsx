@@ -5,7 +5,7 @@ import { heroContent } from "@/content/hero";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-0">
+    <section className="relative min-h-[100svh] md:min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-0">
       {/* Animated Background */}
       <div
         className="absolute inset-0 z-0"

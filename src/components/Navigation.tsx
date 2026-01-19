@@ -81,9 +81,9 @@ const Navigation = () => {
             </motion.a>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - RIGHT ALIGNED */}
           <button
-            className="md:hidden text-primary z-50 relative touch-target flex items-center justify-center p-2"
+            className="md:hidden ml-auto text-primary z-50 relative touch-target flex items-center justify-center p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
