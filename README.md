@@ -138,9 +138,8 @@ src/
 ## 👤 Author
 
 **Yash Uttam**
-AI & Machine Learning Engineer
 
-🔗 LinkedIn: *(www.linkedin.com/in/yash-uttam)*
+🔗 LinkedIn: *www.linkedin.com/in/yash-uttam*
 
 
 > If you like this portfolio, feel free to ⭐ the repository and connect with me!
