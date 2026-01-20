@@ -8,7 +8,7 @@ This portfolio is designed with **clean UI, strong UX, security best practices, 
 
 ## 🚀 Live Preview
 
-👉 **Live Website:** *(yashuttam.me)*
+👉 **Live Website:** *https://yashuttam.me*
 👉 **GitHub Repository:** *(https://github.com/yash-755/My-Portfolio)*
 
 ---
