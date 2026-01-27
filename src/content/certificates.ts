@@ -36,7 +36,7 @@ export const certificates: Certificate[] = [
         category: "valuable",
         description: "Industry-style job simulation focused on data analysis and professional reporting.",
         imageUrl: "/certificates/deloitte-data-analytics-job-simulation.png"
-        featured: true 
+        featured: true
     },
     {
         id: "cert-3",
