@@ -1,7 +1,7 @@
 // ================================
 // Certificates Data (FINAL)
 // ================================
- 
+  
 export interface Certificate {
     id: string;
     title: string;
