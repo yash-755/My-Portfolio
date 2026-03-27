@@ -4,6 +4,6 @@
 export const heroContent = {
     name: "Yash Uttam",
     subtitle: "Computer Science (AIML) Student",
-    tagline: "🔸 AI & Machine Learning Engineer 🔸 AI-Native Systems Builder",
+    tagline: "🔸 AI & Machine Learning Engineer 🔸 Analyzing Data Driving Decisions",
     ctaText: "Explore My Work"
 };
