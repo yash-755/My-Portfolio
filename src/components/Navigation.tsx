@@ -70,7 +70,7 @@ const Navigation = () => {
 
             {/* Connect Button */}
             <motion.a
-              href="https://linktree-4djtpxz0d-yash-uttams-projects.vercel.app/"
+              href="https://links.yashuttam.me/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
@@ -136,7 +136,7 @@ const Navigation = () => {
 
             {/* Connect Button - Mobile */}
             <motion.a
-              href="https://linktree-4djtpxz0d-yash-uttams-projects.vercel.app/"
+              href="https://links.yashuttam.me/"
               target="_blank"
               rel="noopener noreferrer"
               whileTap={{ scale: 0.98 }}
